@@ -11,6 +11,12 @@
 
 ### 취미
 
-- 커피(핸드드립, 콜드브루)
-- 러닝(3~7km)
+- 커피
+  - 핸드드립
+  - 콜드브루
+- 러닝
+  - 3~7km
 - 아쿠아리움 탐방
+  - 1~2개월 마다?
+
+[Tip - git stash 및 single branch clone](https://github.com/woowa-techcamp-2021/baemin-18/blob/main/tip/git.md)
