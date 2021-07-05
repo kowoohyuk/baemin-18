@@ -39,4 +39,4 @@
 
 [Tip - 디자인 추천](https://github.com/woowa-techcamp-2021/baemin-18/blob/main/tip/디자인.md)
 
-[Tip - 익스텐션 추천](https://github.com/woowa-techcamp-2021/baemin-18/blob/main/tip/디자인.md)
+[Tip - 익스텐션 추천](https://github.com/woowa-techcamp-2021/baemin-18/blob/main/tip/익스텐션.md)
