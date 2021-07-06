@@ -1,0 +1,28 @@
+{
+  "name": "baemin-18",
+  "version": "1.0.0",
+  "description": "우아한테크캠프 4기 1주차 팀 18 - 문지호, 고우혁",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kowoohyuk/baemin-18.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kowoohyuk/baemin-18/issues"
+  },
+  "homepage": "https://github.com/kowoohyuk/baemin-18#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nedb": "^1.8.0",
+    "nodemon": "^2.0.9",
+    "pug": "^3.0.2"
+  }
+}
