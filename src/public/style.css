@@ -2,13 +2,15 @@
   --color-baemin: #2ac1bc;
   --color-red: #ff3333;
   --color-black: #333333;
-  --color-dark-gray: #dddddd;
+  --color-white: #fff;
+  --color-dark-gray: #bbbbbb;
   --color-light-gray: #eeeeee;
   --font-large: 48px;
   --font-medium: 28px;
   --font-regular: 18px;
   --font-small: 16px;
   --font-micro: 14px;
+  --font-micro-b: 12px;
   --weight-bold: 600;
   --weight-semi-bold: 500;
   --weight-regular: 400;
@@ -24,18 +26,22 @@ body {
   width: 100vw;
   max-width: 25rem;
   margin: 10vh auto;
+  padding: 0 1.5rem;
   outline: 1px solid red;
- }
+}
 
- header {
-   display: flex;
-   justify-content: space-between;
-   padding: 0 1rem;
- }
+header {
+  display: flex;
+  justify-content: space-between;
+}
 
- header h1 {
-   font-size: var(--font-medium);
- }
+header h1 {
+  font-size: var(--font-medium);
+}
+
+main {
+  margin-top: 2rem;
+}
 
 a:visited {
   color: var(--color-black);
@@ -69,8 +75,23 @@ p {
   margin: 0.25rem 0;
 }
 
+.input-block {
+  display: flex;
+  flex-direction: column-reverse;
+  position: relative;
+}
+
+.input-btns {
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding: 1rem 0 0.5rem 0;
+  column-gap: 0.5rem;
+}
+
 .input-text {
-  padding: 1rem 0;
+  padding: 1rem 0 0.5rem 0;
   width: 100%;
   font-size: var(--font-small);
   color: var(--color-black);
@@ -78,12 +99,20 @@ p {
 }
 
 .input-text::placeholder {
-  color: var(--color-dark-gray);
+  color: var(--color-light-gray);
 }
 
 .input-text:focus {
   outline: none;
   border-bottom-color: var(--color-dark-gray);
+}
+
+.label-input {
+  color: var(--color-dark-gray);
+}
+
+.input-text:focus + .label-input {
+  color: var(--color-black);
 }
 
 .arrow-more {
@@ -115,7 +144,8 @@ p {
   width: 1rem;
   height: 1rem;
   position: relative;
-  display: inline-block;
+  display: flex;
+  align-items: center;
 }
 
 .label-check:before, .label-check:after {
@@ -131,12 +161,12 @@ p {
 .label-check:before {
   width: 50%;
   transform: rotate(45deg);
+  margin-top: 2px;
 }
 
 .label-check:after {
   transform: rotate(-45deg);
   right: calc(4px - 0.5rem);
-  top: -1px;
 }
 
 .label-check.active:before, .label-check.active:after {
@@ -154,8 +184,13 @@ p {
 .btn-clear {
   width:16px;
   height:16px;
+  padding: 2px;
+  display: flex;
+  justify-content: center;  
+  align-items: center;
   background-color: var(--color-dark-gray);
   border-radius: 50%;
-  font-size: var(--font-micro);
+  font-weight: var(--weight-bold);
+  font-size: var(--font-micro-b);
   color: var(--color-white);
 }

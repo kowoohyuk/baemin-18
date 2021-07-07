@@ -1,8 +1,12 @@
 import express from "express";
 import loginRouter from './routers/login-router.js';
 import joinRouter from './routers/join-router.js';
-const app = express();
+import path from 'path';
 
+const app = express();
+const __dirname = path.resolve();
+
+app.use('/js', express.static(path.join(__dirname, 'src', 'js')));
 app.set('views', 'src/views')
 app.set('view engine', 'pug');
 app.use(express.urlencoded({ extended: true }));

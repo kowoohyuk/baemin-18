@@ -1,0 +1,9 @@
+mixin inputBlock(props={ className, labelText, type, placeholder, clearButton, checkLabel })
+  .input-block(class=props.className)
+    div.input-btns
+      if props.clearButton
+        button.btn-clear X
+      if props.checkLabel
+        label.label-check
+    input.input-text(type=props.type placeholder=props.placeholder)
+    label.label-input= props.labelText
