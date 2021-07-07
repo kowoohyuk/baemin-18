@@ -275,3 +275,62 @@ p {
   background-color: var(--color-light-gray);
 }
 
+.inner {
+  position: relative;
+  padding: 15px;
+}
+
+.intro {
+  font-weight: var(--weight-bold);
+}
+
+.checklists__agree{
+  font-weight: var(--weight-bold);
+}
+
+.checklists hr {
+  border:1px solid var(--color-light-gray);
+}
+.checklists__left {
+  display: flex;
+  font-size: 17px;
+}
+
+.checklists__inner{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+}
+.checklists__box{
+  width: 20px;
+  height: 20px;
+  background: url("/public/imgs/체크박스_F.png") center/cover no-repeat;
+  margin-right: 5px;
+}
+
+.checklists__box.active{
+  background: url("/public/imgs/체크박스_T.png") center/cover no-repeat;
+}
+
+.fourteen__up {
+  width: 100%;
+  height: 60px;
+  background: url("/public/imgs/14세이상_F.png") center/cover no-repeat;
+  margin-top: 10px;
+}
+
+.fourteen__up.active {
+  background: url("/public/imgs/14세이상_F.png") center/cover no-repeat;
+}
+
+.fourteen__down {
+  width: 100%;
+  height: 60px;
+  background: url("/public/imgs/14세미만_F.png") center/cover no-repeat;
+  margin-top: 10px;
+}
+
+.fourteen__down.active {
+  background: url("/public/imgs/14세미만_F.png") center/cover no-repeat;
+}
