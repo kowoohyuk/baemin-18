@@ -20,6 +20,23 @@
   color: var(--color-black);
 }
 
+body {
+  width: 100vw;
+  max-width: 25rem;
+  margin: 10vh auto;
+  outline: 1px solid red;
+ }
+
+ header {
+   display: flex;
+   justify-content: space-between;
+   padding: 0 1rem;
+ }
+
+ header h1 {
+   font-size: var(--font-medium);
+ }
+
 a:visited {
   color: var(--color-black);
 }

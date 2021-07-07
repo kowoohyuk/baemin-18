@@ -1,5 +1,9 @@
 html
   head
     title= title
+    style
+      include ../public/reset.css
+      include ../public/style.css
   body
-    h1= 메인
+    include ./blocks/header.pug
+    h1 메인
