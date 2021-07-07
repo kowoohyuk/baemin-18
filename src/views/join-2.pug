@@ -8,9 +8,8 @@ html
   body
     include ./blocks/header.pug
     main
-      +inputBlock({ className: '클래스', labelText: '휴대전화', type: 'text', placeholder: '휴대전화 번호를 입력해주세요.', clearButton: true, checkLabel: true })
-      button.btn-verify.btn-large 인증번호 받기
-
+      +inputBlock({ className: 'alert', labelText: '휴대전화', type: 'text', placeholder: '휴대전화 번호를 입력해주세요.', clearButton: true, checkLabel: true })
       +inputBlock({ labelText: '인증번호', type: 'text', placeholder: '인증번호를 입력해주세요.', clearButton: true, checkLabel: true })
       button.btn-verify.btn-plain-text 인증번호 다시받기
-      script(src="/js/join.js")
+      button.btn-verify.btn-large 인증번호 받기
+      //- script(src="/js/join.js")
