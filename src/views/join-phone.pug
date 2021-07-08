@@ -1,0 +1,18 @@
+extends layout.pug
+
+block styles
+  link(rel="stylesheet", href="/public/join-phone.css")
+block includes
+  include ./mixins/input-block.pug
+block header
+  header
+    button.prev 이전
+    h1 회원가입
+    button.next 다음
+block content
+  main
+    +inputBlock({ className: 'input-phone', labelText: '휴대전화', type: 'text', placeholder: '휴대전화 번호를 입력해주세요.', clearButton: true, checkLabel: true })
+    +inputBlock({ className: 'input-verify', labelText: '인증번호', type: 'text', placeholder: '인증번호를 입력해주세요.', clearButton: true, checkLabel: true })
+    button.btn-verify.btn-plain-text 인증번호 다시받기
+    button.btn-verify.btn-large 인증번호 받기
+    script(src="/js/join-phone.js")

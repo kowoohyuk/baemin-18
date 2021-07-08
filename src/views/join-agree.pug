@@ -1,12 +1,14 @@
-html
-  head
-    title= title
-    style
-      include ../public/reset.css
-      include ../public/style.css
-  body
-    include ./blocks/header.pug
+extends layout.pug
 
+block styles
+  link(rel="stylesheet", href="/public/join-agree.css")
+block header
+  header
+    button.prev X
+    h1 회원가입
+    button.next 
+block content
+  main
     .inner
       br
       
@@ -50,7 +52,7 @@ html
       .fourteen
         .fourteen__up    
         .fourteen__down  
-   
+
       .btn
         input.btn-large.btn-large--gray(
           type='submit'
@@ -58,4 +60,4 @@ html
         )
 
 
-      
+        

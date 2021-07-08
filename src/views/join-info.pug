@@ -1,0 +1,23 @@
+extends layout.pug
+
+block styles
+  link(rel="stylesheet", href="/public/join-info.css")
+block includes
+  include ./mixins/input-block.pug
+block header
+  header
+    button.prev 이전
+    h1 회원가입
+    button.next 다음
+block content
+  main
+    div.grid-block
+      +inputBlock({ className: 'alert', labelText: '이메일', type: 'text', placeholder: '', clearButton: true, checkLabel: true })
+      button.btn-duplicate.btn-small 중복확인
+    div
+      +inputBlock({ labelText: '닉네임', type: 'text', placeholder: '', clearButton: true, checkLabel: true })
+    div
+      +inputBlock({ labelText: '비밀번호', type: 'text', placeholder: '', clearButton: true, checkLabel: true })
+    div
+      +inputBlock({ labelText: '생년월일', type: 'text', placeholder: '예) 2000.01.01', clearButton: true, checkLabel: true })
+    //- script(src="/js/join.js")
