@@ -3,8 +3,8 @@
   --color-red: #ff3333;
   --color-black: #333333;
   --color-white: #fff;
-  --color-dark-gray: #bbbbbb;
-  --color-light-gray: #eeeeee;
+  --color-dark-gray: #a9a9a9;
+  --color-light-gray: #d3d3d3;
   --font-large: 48px;
   --font-medium: 28px;
   --font-regular: 18px;
@@ -224,7 +224,6 @@ div {
   bottom: -130px;
   left: 0px;
   width: 100%;
-  padding: 15px;
 } /* 추가 */
 
 .btn-large {
