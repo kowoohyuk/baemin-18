@@ -1,6 +1,6 @@
 mixin inputBlock(props={ className, labelText, type, placeholder, clearButton, checkLabel, alert, alertText })
   .input-block(class=props.className)
-    p.alert-text 안녕하세요
+    p.alert-text= props.alertText
     input.input-text(type=props.type placeholder=props.placeholder class=props.alert && "block")
     label.label-input= props.labelText
     div.input-btns

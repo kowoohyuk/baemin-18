@@ -18,4 +18,5 @@
   right: 0;
   width: auto;
   color: var(--color-baemin);
+  display: none;
 }
