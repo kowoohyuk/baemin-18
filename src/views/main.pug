@@ -1,21 +1,23 @@
-html
-  head
-    title= title
-    style
-      include ../public/reset.css
-      include ../public/style.css
-  body
-    include ./blocks/header.pug
-    
+extends layout.pug
+
+block styles
+  link(rel="stylesheet", href="/public/main.css")
+block header
+  header
+    button.prev 
+    h1 My배민
+    button.next 
+block content
+  main
     img.banner(
-      src="/public/imgs/배너.png"
+      src="/public/imgs/banner.png"
       alt='배너'
     )
 
     .list
       .list__info
         img(
-          src="/public/imgs/프로필.png"
+          src="/public/imgs/profile.png"
           alt='프로필'  
         )
         span 로그인해주세요
@@ -25,21 +27,21 @@ html
       .category__inner
         .category__item
           img(
-          src="/public/imgs/포인트.png"
+          src="/public/imgs/point.png"
           alt='포인트'  
           )
           span.category__name 포인트
       .category__inner
         .category__item
           img(
-          src="/public/imgs/쿠폰함.png"
+          src="/public/imgs/coupon.png"
           alt='쿠폰함'  
           )
           span.category__name 쿠폰함
       .category__inner
         .category__item
           img(
-          src="/public/imgs/선물함.png"
+          src="/public/imgs/gift.png"
           alt='선물함'  
           )
           span.category__name 선물함
@@ -48,21 +50,21 @@ html
       .category__inner
         .category__item
           img(
-          src="/public/imgs/찜.png"
+          src="/public/imgs/wish.png"
           alt='찜'  
           )
           span.category__name 찜
       .category__inner
         .category__item
           img(
-          src="/public/imgs/주문내역.png"
+          src="/public/imgs/order.png"
           alt='주문내역'  
           )
           span.category__name 주문내역
       .category__inner
         .category__item
           img(
-          src="/public/imgs/리뷰관리.png"
+          src="/public/imgs/review.png"
           alt='리뷰관리'  
           )
           span.category__name 리뷰관리
@@ -72,7 +74,7 @@ html
     .list
       .list__plant
         img(
-          src="/public/imgs/일회용품.png"
+          src="/public/imgs/sprout.png"
           alt='일회용품'  
         )
         span 일회용품 덜 쓰기, 함께해요!
@@ -107,4 +109,4 @@ html
       span 배민커넥트 지원
       .arrow-more
 
-      
+        
