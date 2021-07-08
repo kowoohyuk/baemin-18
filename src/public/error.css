@@ -1,0 +1,9 @@
+main {
+  text-align: center;
+  padding-top: 5rem;
+}
+p {
+  font-weight: var(--weight-bold);
+  margin-top: 2rem;
+  font-size: var(--font-regular);
+}
