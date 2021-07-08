@@ -39,13 +39,13 @@ main {
   position: relative;
 }
 
- header button {
-    font-size: var(--font-small);
- }
+header button {
+  font-size: var(--font-small);
+}
 
- header h1 {
-   font-size: var(--font-regular);
- }
+header h1 {
+  font-size: var(--font-regular);
+}
 
 a:visited {
   color: var(--color-black);
@@ -164,12 +164,12 @@ div {
 .arrow-more:before {
   transform: rotate(45deg);
   top: -0.375rem;
-}/* 수정 */
+} /* 수정 */
 
 .arrow-more:after {
   transform: rotate(-45deg);
   top: 0.25rem;
-}/* 수정 */
+} /* 수정 */
 
 .label-check {
   width: 1rem;
@@ -207,7 +207,7 @@ div {
 }
 
 .btn {
-  position:absolute;
+  position: absolute;
   bottom: -130px;
   left: 0px;
   width: 100%;
@@ -222,7 +222,7 @@ div {
   border-radius: var(--size-border-radius);
 }
 
-.btn-large--gray{
+.btn-large--gray {
   background-color: var(--color-dark-gray);
 } /* 추가 */
 
@@ -243,28 +243,6 @@ div {
 
 .btn-clear:hover {
   background-color: var(--color-black);
-}
-
-.btn-verify:not(.btn-plain-text) {
-  border: 1px solid var(--color-light-gray);
-  color: var(--color-black);
-  background-color: var(--color-white);
-  font-weight: var(--weight-bold);
-  font-size: var(--font-small);
-}
-
-.btn-verify:not(.btn-plain-text):hover {
-  border-color: var(--color-baemin);
-  background-color: var(--color-baemin);
-  color: var(--color-white);
-}
-
-.btn-plain-text {
-  font-weight: var(--weight-bold);
-  position: absolute;
-  right: 0;
-  width: auto;
-  color: var(--color-baemin);
 }
 
 .input-text:focus + label + div .btn-clear {
@@ -288,160 +266,4 @@ div {
 
 .btn-duplicate:hover {
   color: var(--color-black);
-}
-/* main 시작 */
-
-.category {
-  display: flex;
-}
-
-.category__inner{
-  display: flex;
-  flex: 1;
-  justify-content: center;
-  border: 0.5px solid var(--color-light-gray);
-  padding: 20px;
-}
-
-.category__item{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.category__item img{
-  width: 25px;
-  height: 25px;
-  margin-bottom: 6px;
-}
-
-.category__name{
-  color: var(--color-dark-gray);
-  font-size: 9px;
-}
-
-.banner {
-  width: 100%;
-  height: 100px;
-}
-
-.list{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  border-bottom: 1px solid var(--color-light-gray);
-}
-
-.list__info {
-  display: flex;
-  align-items: center;
-}
-
-.list__info img {
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
-}
-
-.list__info span {
-  color: var(--color-dark-gray);
-}
-
-.list__plant {
-  display: flex;
-  align-items: center;
-}
-
-.list__plant img{
-  display: flex;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  padding: 8px;
-}
-
-.list__plant span{
-  color: #007000
-}
-
-.newbtn__inner {
-  display: flex;
-  align-items: center;
-}
-
-.newbtn__inner img{
-  width: 40px;
-  height: 30px;
-  padding: 8px;
-}
-
-.newbtn__desc {
-  color: var(--color-dark-gray);
-  font-size: 14px;
-}
-
-.grayborder{
-  height: 8px;
-  background-color: var(--color-light-gray);
-}
-
-.inner {
-  position: relative;
-  padding: 15px;
-}
-
-.intro {
-  font-weight: var(--weight-bold);
-}
-
-.checklists__agree{
-  font-weight: var(--weight-bold);
-}
-
-.checklists hr {
-  border:1px solid var(--color-light-gray);
-}
-.checklists__left {
-  display: flex;
-  font-size: 17px;
-}
-
-.checklists__inner{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 20px 0;
-}
-.checklists__box{
-  width: 20px;
-  height: 20px;
-  background: url("/public/imgs/체크박스_F.png") center/cover no-repeat;
-  margin-right: 5px;
-}
-
-.checklists__box.active{
-  background: url("/public/imgs/체크박스_T.png") center/cover no-repeat;
-}
-
-.fourteen__up {
-  width: 100%;
-  height: 60px;
-  background: url("/public/imgs/14세이상_F.png") center/cover no-repeat;
-  margin-top: 10px;
-}
-
-.fourteen__up.active {
-  background: url("/public/imgs/14세이상_F.png") center/cover no-repeat;
-}
-
-.fourteen__down {
-  width: 100%;
-  height: 60px;
-  background: url("/public/imgs/14세미만_F.png") center/cover no-repeat;
-  margin-top: 10px;
-}
-
-.fourteen__down.active {
-  background: url("/public/imgs/14세미만_F.png") center/cover no-repeat;
 }
