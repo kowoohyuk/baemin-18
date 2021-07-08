@@ -12,9 +12,11 @@ app.set('view engine', 'pug');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.get('/', (req, res) => res.render('main', { title: '메인' }));
+app.get('/', (req, res) => res.render('main', { title: 'My배민' }));
 app.use('/login', loginRouter);
-app.use('/join', joinRouter);
+app.use('/join-1', joinRouter);/* 수정 */
+
+app.use("/public", express.static(path.join(__dirname, 'src' , 'public')));/* 수정 */
 
 const port = process.env.PORT || 5000;
 
