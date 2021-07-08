@@ -86,6 +86,14 @@ div {
   font-size: var(--font-micro);
 }
 
+.hidden {
+  display: none !important;
+}
+
+.visible {
+  display: block !important;
+}
+
 .input-block {
   display: flex;
   flex-direction: column-reverse;
@@ -103,6 +111,11 @@ div {
 
 .input-block.alert .alert-text {
   display: block;
+}
+
+.input-block.pass .label-check:before,
+.input-block.pass .label-check:after {
+  background-color: var(--color-baemin);
 }
 
 .input-btns {
