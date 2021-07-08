@@ -20,6 +20,7 @@
   };
 
   const loginBtn = document.querySelector('.btn-login');
+  const prevBtn = document.querySelector('.prev');
   const emailInputWrap = document.querySelector('.input-email');
   const pwdInputWrap = document.querySelector('.input-pwd');
   const emailInput = document.querySelector('.input-email input');
@@ -28,5 +29,6 @@
 
   emailInput.addEventListener('focusout', emailValidation);
   pwdInput.addEventListener('focusout', pwdValidation);
+  prevBtn.addEventListener('click', () => history.go(-1));
   loginBtn.addEventListener('click', submit);
 })();

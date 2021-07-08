@@ -1,5 +1,3 @@
-/* main 시작 */
-
 .category {
   display: flex;
 }
@@ -93,4 +91,8 @@
 .grayborder {
   height: 8px;
   background-color: var(--color-light-gray);
+}
+
+.btn-login {
+  cursor: pointer;
 }

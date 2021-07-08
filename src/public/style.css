@@ -23,10 +23,32 @@
 }
 
 body {
+  border: 2px solid var(--color-baemin);
+  border-radius: 0.5rem;
   width: 100vw;
   max-width: 25rem;
   margin: 10vh auto;
   padding: 0 1.5rem;
+}
+
+@media (max-width: 500px) {
+  body {
+    transform: scale(0.9);
+    padding: 0.5rem;
+    margin-top: 0rem;
+  }
+  div.btn {
+    margin-top: 2rem;
+    position: static;
+  }
+  main div.fourteen > .fourteen__up,
+  main div.fourteen > .fourteen__down {
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  body h1 {
+    margin: 0;
+  }
 }
 
 header {
