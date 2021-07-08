@@ -13,16 +13,19 @@ block content
       src="/public/imgs/banner.png"
       alt='배너'
     )
-
-    .list.btn-login
+    .list(class=nickname && '' || '.btn-login')
       .list__info
         img(
           src="/public/imgs/profile.png"
           alt='프로필'  
         )
-        span 로그인해주세요
+        if nickname
+          span #{nickname} 
+        else
+          span 로그인해주세요
       .arrow-more
-
+    if nickname
+      button.btn-large.btn-logout 로그아웃
     .category
       .category__inner
         .category__item
