@@ -36,6 +36,7 @@
   height: 60px;
   background: url('/public/imgs/age-over-false.png') center/cover no-repeat;
   margin-top: 10px;
+  cursor: pointer;
 }
 
 .fourteen__up.active {
@@ -45,10 +46,23 @@
 .fourteen__down {
   width: 100%;
   height: 60px;
-  background: url('/public/imgs/age-under-true.png') center/cover no-repeat;
+  background: url('/public/imgs/age-under-false.png') center/cover no-repeat;
   margin-top: 10px;
+  cursor: pointer;
 }
 
 .fourteen__down.active {
   background: url('/public/imgs/age-under-true.png') center/cover no-repeat;
+}
+
+.btn {
+  padding: 0;
+}
+.next-btn {
+  cursor: default;
+}
+
+.next-btn.active {
+  cursor: pointer;
+  background-color: var(--color-baemin);
 }
