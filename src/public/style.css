@@ -11,6 +11,7 @@
   --font-small: 16px;
   --font-micro: 14px;
   --font-micro-b: 12px;
+  --font-micro-c: 11px;
   --weight-bold: 600;
   --weight-semi-bold: 500;
   --weight-regular: 400;
@@ -48,6 +49,9 @@ body {
   }
   body h1 {
     margin: 0;
+  }
+  .alert-text {
+    font-size: 10px;
   }
 }
 
@@ -126,7 +130,7 @@ div {
 .input-block .alert-text {
   position: absolute;
   bottom: -1.5rem;
-  font-size: var(--font-micro-b);
+  font-size: var(--font-micro-c);
   color: var(--color-red);
   display: none;
 }
@@ -272,7 +276,9 @@ div {
   font-weight: var(--weight-bold);
   font-size: var(--font-micro-b);
   color: var(--color-white);
-  visibility: hidden;
+  opacity: 0;
+  cursor: default;
+  transition: opacity linear 0.05s;
 }
 
 .btn-clear:hover {
@@ -280,7 +286,8 @@ div {
 }
 
 .input-text:focus + label + div .btn-clear {
-  visibility: visible;
+  cursor: pointer;
+  opacity: 1;
 }
 
 .grid-block {
