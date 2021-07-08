@@ -2,7 +2,7 @@
 
 우아한테크캠프 4기 1주차 팀 18 - 문지호, 고우혁
 
-![프로필](https://user-images.githubusercontent.com/45394360/124464501-3a3d5980-ddcf-11eb-9188-29c435e95f84.jpg)
+![프로필](https://user-images.githubusercontent.com/45394360/124929654-a4f2cd00-e03b-11eb-935d-895fdc193c68.jpg)
 
 ## 고우혁
 
@@ -31,8 +31,8 @@
 
 개발 인맥을 넓히고 싶습니다... (코로나 ㅠㅠ)
 
-
 ### 취미
+
 - 헬스
 - 축구
 - 음악 듣기 & 부르기(모든장르)
