@@ -45,22 +45,32 @@ joinRouter.post('/', (req, res) => {
   //   phone : '010-3212-1664',
   //   ageUp : T,
   //   privateInfo : T,
-  //   smsReceive : T
+  //   smsReceive : T,
+  //   token : ''
   // };
-  
-  req.body.pwd = pwdHash(req.body.pwd);
-  const userInfo = req.body;
 
-  // 데이터 저장
-  db.insert(userInfo, (err, newDoc) => {
-    if(err) {
-        console.log(err);
-        // alert 를 이용한 에러문구 생성 ?!
-        return;
-    }
-    console.log('save! ',newDoc);
-    res.redirect('/login')
+  /*
+    --- 중복성 추가 ---
+    함수 api로 뺄지 밑으로 뺄지
+  */
+  db.find({ email : req.body.email }, (err, users) => {
+    if(err) return console.log(err);
+    if(users.length > 0) return console.log('Email 중복!!');
+    
+    const userInfo = req.body;
+    req.body.pwd = pwdHash(req.body.pwd);
+    
+    // 데이터 저장
+    db.insert(userInfo, (err, newDoc) => {
+      if(err) {
+          return console.log(err);
+          // alert 를 이용한 에러문구 생성 ?! 에러처리 논의
+      }
+      console.log('save! ',newDoc);
+      res.redirect('/login');
+    });
   });
+  
 });
 
 export default joinRouter;
