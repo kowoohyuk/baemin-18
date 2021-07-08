@@ -27,13 +27,10 @@
   };
 
   const changeNextBtnState = () => {
-    console.log('1');
     if (isPass()) {
       nextBtn.classList.add('active');
-      console.log('2');
     } else {
       nextBtn.classList.remove('active');
-      console.log('3');
     }
   };
 
