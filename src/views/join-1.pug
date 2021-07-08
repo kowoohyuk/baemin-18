@@ -1,0 +1,61 @@
+html
+  head
+    title= title
+    style
+      include ../public/reset.css
+      include ../public/style.css
+  body
+    include ./blocks/header.pug
+
+    .inner
+      br
+      
+      h3.intro 어서오세요
+      h3.intro 약관동의가 필요해요
+      
+      ul.checklists
+        li.checklists__inner
+          .checklists__left
+            .checklists__box
+            span.checklists__agree 전체동의
+          .arrow-more
+        hr 
+        li.checklists__inner
+          .checklists__left
+            .checklists__box
+            span 배달의민족 이용약관 동의
+          .arrow-more
+        li.checklists__inner
+          .checklists__left
+            .checklists__box
+            span 전자금융거래 이용약관 동의
+          .arrow-more
+        li.checklists__inner
+          .checklists__left
+            .checklists__box
+            span 개인정보 수집이용 동의
+          .arrow-more
+        li.checklists__inner
+          .checklists__left
+            .checklists__box
+            span 개인정보 제3자 제공 동의 (선택)
+          .arrow-more
+        li.checklists__inner
+          .checklists__left
+            .checklists__box
+            span 마케팅 정보 메일, SMS 수신동의 (선택)
+          .arrow-more
+        hr
+
+      .fourteen
+        .fourteen__up    
+        .fourteen__down  
+   
+      .btn
+        input.btn-large.btn-large--gray(
+          type='submit'
+          value='다음으로'
+        )
+
+
+      
