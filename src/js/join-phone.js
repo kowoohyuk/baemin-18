@@ -58,7 +58,7 @@
     }
   };
 
-  const inputBtns = document.querySelectorAll('.input-btns');
+  const clearBtns = document.querySelectorAll('.input-btns .btn-clear');
   const verifyBtns = document.querySelectorAll('.btn-verify');
   const phoneInputWrap = document.querySelector('.input-phone');
   const verifyInputWrap = document.querySelector('.input-verify');
@@ -67,7 +67,7 @@
   const nextBtn = document.querySelector('.next');
   const prevBtn = document.querySelector('.prev');
 
-  inputBtns.forEach((btn) => {
+  clearBtns.forEach((btn) => {
     btn.addEventListener('click', resetInput);
   });
 

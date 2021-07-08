@@ -8,16 +8,17 @@ block header
   header
     button.prev 이전
     h1 회원가입
-    button.next 다음
+    button.submit 완료
 block content
   main
     div.grid-block
-      +inputBlock({ className: 'alert', labelText: '이메일', type: 'text', placeholder: '', clearButton: true, checkLabel: true })
+      +inputBlock({ className: 'input-email', labelText: '이메일', type: 'text', placeholder: '', clearButton: true, checkLabel: true, alertText: '올바른 이메일을 입력해주세요.' })
       button.btn-duplicate.btn-small 중복확인
     div
-      +inputBlock({ labelText: '닉네임', type: 'text', placeholder: '', clearButton: true, checkLabel: true })
+      +inputBlock({ className: 'input-nickname', labelText: '닉네임', type: 'text', placeholder: '', clearButton: true, checkLabel: true, alertText: '닉네임을 입력해주세요.' })
     div
-      +inputBlock({ labelText: '비밀번호', type: 'text', placeholder: '', clearButton: true, checkLabel: true })
+      +inputBlock({ className: 'input-pwd', labelText: '비밀번호', type: 'password', placeholder: '', clearButton: true, checkLabel: true, alertText: '10자 이상, 대문자, 소문자, 숫자 중 2종류이상 조합하셔야 합니다.' })
     div
-      +inputBlock({ labelText: '생년월일', type: 'text', placeholder: '예) 2000.01.01', clearButton: true, checkLabel: true })
-    //- script(src="/js/join.js")
+      +inputBlock({ className: 'input-birth', labelText: '생년월일', type: 'text', placeholder: '예) 2000.01.01', clearButton: true, checkLabel: true, alertText: '올바른 생년월일을 입력해주세요.' })
+    script(src="/js/join-info.js")
+    
