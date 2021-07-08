@@ -1,0 +1,14 @@
+extends layout
+
+block styles
+  link(rel="stylesheet", href="/public/error.css")
+block header
+  header
+    button.prev X
+    h1 에러
+    button  
+block content
+  main
+    img(src="/public/imgs/error.gif")
+    p 오류가 발생했습니다.. 💦
+  script(src="/js/error.js")
