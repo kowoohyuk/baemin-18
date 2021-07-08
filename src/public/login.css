@@ -1,0 +1,31 @@
+.btn-login {
+  margin-bottom: 1.5rem;
+}
+
+.btns-find {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btns-find button {
+  color: var(--color-dark-gray);
+}
+
+.btns-find p {
+  width: 1px;
+  height: 0.75rem;
+  background-color: var(--color-dark-gray);
+  margin: 0 1rem;
+  margin-top: 0.125rem;
+}
+
+.join {
+  text-align: center;
+  margin-top: 10rem;
+}
+
+.join a {
+  color: var(--color-baemin);
+  margin-left: 1rem;
+}
