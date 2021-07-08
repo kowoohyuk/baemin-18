@@ -1,5 +1,31 @@
-html
-  head
-    title= title
-  body
-    h1 로그인
+extends layout.pug
+
+block styles
+  link(rel="stylesheet", href="/public/login.css")
+block includes
+  include ./mixins/input-block.pug
+block header
+  header
+    button.prev X
+    h1 &nbsp;
+    button 
+block content
+  main
+    form(action="/login" method="post")
+      div
+        +inputBlock({ className: 'input-email', labelText: '', type: 'text', placeholder: '아이디 또는 이메일', clearButton: true, checkLabel: false, alertText: '아이디(이메일)를 입력해주세요.', name: 'email' })
+      div
+        +inputBlock({ className: 'input-pwd', labelText: '', type: 'password', placeholder: '비밀번호', clearButton: true, checkLabel: false, alertText: '비밀번호를 입력해주세요.', name: 'pwd' })
+    div
+      input.btn-login.active.btn-large(
+        type='button'
+        value='로그인'
+      )
+    div.btns-find
+      button 아이디 찾기
+      p
+      button 비밀번호 찾기
+    div.join
+      p 혹시, 배달의민족이 처음이신가요?
+        a(href="/join") 회원가입
+    script(src="/js/login.js")
