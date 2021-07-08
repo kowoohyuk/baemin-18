@@ -96,3 +96,7 @@
 .btn-login {
   cursor: pointer;
 }
+
+.btn-logout {
+  margin: 0.5rem 0;
+}
