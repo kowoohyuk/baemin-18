@@ -93,7 +93,7 @@
     target.value = value.replace(/^(.{4})(.{2})(.{2})$/, '$1.$2.$3');
   };
 
-  const submit = async () => {
+  const submit = () => {
     if (
       emailValidation() &&
       nicknameValidation() &&
@@ -102,8 +102,7 @@
     ) {
       const userInfo = combineUserInfo();
       if (!userInfo) return;
-      const result = await joinUser(userInfo);
-      if (result) location.pathname = '/';
+      joinUser(userInfo);
     }
   };
 
@@ -128,16 +127,18 @@
     };
   };
 
-  const joinUser = async (userInfo) => {
-    const data = await fetch('/join', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(userInfo),
-    });
-    const result = data.json();
-    return false;
+  const joinUser = (userInfo) => {
+    form.insertAdjacentHTML(
+      'beforeend',
+      `
+      <input type="hidden" name="phone" value="${userInfo.phone}"/>
+      <input type="hidden" name="ageUp" value="${userInfo.ageUp}"/>
+      <input type="hidden" name="privateInfo" value="${userInfo.privateInfo}"/>
+      <input type="hidden" name="smsReceive" value="${userInfo.smsReceive}"/>
+      <input type="hidden" name="token" value="${userInfo.token}"/>
+    `
+    );
+    form.submit();
   };
   const clearBtns = document.querySelectorAll('.input-btns .btn-clear');
   const duplicateBtn = document.querySelector('.btn-duplicate');
@@ -153,6 +154,7 @@
 
   const submitBtn = document.querySelector('.submit');
   const prevBtn = document.querySelector('.prev');
+  const form = document.querySelector('form');
 
   clearBtns.forEach((btn) => btn.addEventListener('click', resetInput));
 
