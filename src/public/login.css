@@ -22,10 +22,27 @@
 
 .join {
   text-align: center;
-  margin-top: 10rem;
+  margin-top: 12px;
 }
 
 .join a {
   color: var(--color-baemin);
   margin-left: 1rem;
+}
+
+.social {
+  margin-top: 10rem;
+}
+
+.socialbtn {
+  width: 100%;
+  border: 1px solid var(--color-dark-gray);
+  margin-bottom: 10px;
+  height: 40px;
+}
+
+.socialbtn img{
+  width: 12px;
+  height: 12px;
+  margin-right: 10px;
 }
