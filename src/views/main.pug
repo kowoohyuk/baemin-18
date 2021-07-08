@@ -13,7 +13,7 @@ block content
       src="/public/imgs/banner.png"
       alt='배너'
     )
-    .list(class=nickname && '' || '.btn-login')
+    .list(class=(nickname && ' ') || 'btn-login')
       .list__info
         img(
           src="/public/imgs/profile.png"

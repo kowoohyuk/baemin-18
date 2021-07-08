@@ -98,8 +98,11 @@
     if (Number(month) < 1 || Number(month) > 12 || Number(day) < 1) {
       return false;
     }
-    const date = new Date(new Date(year + '-' + month + '-' + '01').setDate(0));
-    return date.getDate() >= Number(day);
+    const date = new Date(year + '-' + month + '-' + '01');
+    const tmpDate = new Date(
+      new Date(date.setMonth(date.getMonth() + 1)).setDate(0)
+    );
+    return tmpDate.getDate() >= Number(day);
   };
 
   const handleKeyUpBirthInput = (e) => {
