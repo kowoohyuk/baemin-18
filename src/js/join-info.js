@@ -42,17 +42,32 @@
       lower: false,
       number: false,
     };
+    const sequenceStack = [];
+    const sameStack = [];
     for (const str of strings) {
       if (/[A-Z]/.test(str)) type.upper = true;
       else if (/[a-z]/.test(str)) type.lower = true;
       else if (/\d/.test(str)) type.number = true;
+
+      if (Number(sequenceStack[sequenceStack.length - 1]) + 1 === Number(str)) {
+        sequenceStack.push(str);
+        if (sequenceStack.length === 3) return false;
+      } else {
+        while (sequenceStack.length && sequenceStack.pop()) {}
+        sequenceStack.push(str);
+      }
+      if (sameStack[sameStack.length - 1] === str) {
+        sameStack.push(str);
+        if (sameStack.length === 3) return false;
+      } else {
+        while (sameStack.length && sameStack.pop()) {}
+        sameStack.push(str);
+      }
     }
     if (Number(type.upper) + Number(type.lower) + Number(type.number) > 1)
       return true;
     return false;
   };
-  // 추가 기능
-  // 같은 숫자 혹은 연속된 숫자를 3개 이상 입력할 수 없습니다.
   const pwdValidation = () => {
     if (checkPwdWord()) {
       pwdInputWrap.classList.remove('alert');
@@ -158,8 +173,7 @@
 
   clearBtns.forEach((btn) => btn.addEventListener('click', resetInput));
 
-  // 중복체크 보류
-  duplicateBtn.addEventListener('click', () => {});
+  duplicateBtn.addEventListener('click', (e) => e.preventDefault());
   birthInput.addEventListener('keyup', handleKeyUpBirthInput);
   emailInput.addEventListener('focusout', emailValidation);
   nicknameInput.addEventListener('focusout', nicknameValidation);

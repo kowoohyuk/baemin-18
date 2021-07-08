@@ -20,3 +20,13 @@
   color: var(--color-baemin);
   display: none;
 }
+
+.next {
+  color: var(--color-light-gray);
+  cursor: default;
+}
+
+.next.active {
+  color: var(--color-black);
+  cursor: pointer;
+}

@@ -25,6 +25,7 @@
     if (phoneNumberFilled() && phoneInput.value.slice(0, 3) === '010') {
       phoneInputWrap.classList.remove('alert');
       phoneInputWrap.classList.add('pass');
+      isInputFulFilled();
       return true;
     } else {
       phoneInputWrap.classList.remove('pass');
@@ -37,11 +38,23 @@
     if (verifyInputFilled()) {
       verifyInputWrap.classList.remove('alert');
       verifyInputWrap.classList.add('pass');
+      isInputFulFilled();
       return true;
     } else {
       verifyInputWrap.classList.remove('pass');
       verifyInputWrap.classList.add('alert');
       return false;
+    }
+  };
+
+  const isInputFulFilled = () => {
+    if (
+      phoneInputWrap.classList.contains('pass') &&
+      verifyInputWrap.classList.contains('pass')
+    ) {
+      nextBtn.classList.add('active');
+    } else {
+      nextBtn.classList.remove('active');
     }
   };
 
@@ -52,7 +65,11 @@
   };
 
   const nextPage = () => {
-    if (phoneNumberValidation() && verifyNumberValidation()) {
+    if (
+      phoneNumberValidation() &&
+      verifyNumberValidation() &&
+      nextBtn.classList.contains('active')
+    ) {
       localStorage.setItem('phone', phoneInput.value);
       location.pathname = '/join/3';
     }
