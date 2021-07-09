@@ -28,21 +28,21 @@
     e.preventDefault();
     if (emailValidation()) {
       duplicateBtn.classList.add('loading');
-
-      duplicateBtn.classList.remove('loading');
-
-      const data = await fetch(`/email-check/${emailInput.value}`);
-      const result = data.json();
-      if (Number(result.result) === 0) {
-        emailInputWrap.querySelector('.alert-text').textContent =
-          '중복된 이메일 입니다.';
-        emailInputWrap.classList.remove('pass');
-        emailInputWrap.classList.add('alert');
-      } else {
-        nicknameInputWrap.classList.remove('hidden');
-        pwdInputWrap.classList.remove('hidden');
-        birthInputWrap.classList.remove('hidden');
-      }
+      const data = await fetch(`/join/email-check/${emailInput.value}`);
+      const result = await data.json();
+      setTimeout(() => {
+        duplicateBtn.classList.remove('loading');
+        if (Number(result.result) === 1) {
+          emailInputWrap.querySelector('.alert-text').textContent =
+            '중복된 이메일 입니다.';
+          emailInputWrap.classList.remove('pass');
+          emailInputWrap.classList.add('alert');
+        } else {
+          nicknameInputWrap.classList.remove('hidden');
+          pwdInputWrap.classList.remove('hidden');
+          birthInputWrap.classList.remove('hidden');
+        }
+      }, 1000);
     }
   };
 
