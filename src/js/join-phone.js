@@ -70,7 +70,7 @@
       verifyNumberValidation() &&
       nextBtn.classList.contains('active')
     ) {
-      localStorage.setItem('phone', phoneInput.value);
+      sessionStorage.setItem('phone', phoneInput.value);
       location.pathname = '/join/3';
     }
   };

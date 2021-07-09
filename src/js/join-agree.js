@@ -46,7 +46,7 @@
 
   const nextPage = () => {
     if (nextBtn.classList.contains('active') && isPass()) {
-      localStorage.setItem('agree', JSON.stringify(getAgreeState()));
+      sessionStorage.setItem('agree', JSON.stringify(getAgreeState()));
       location.pathname = '/join/2';
     }
   };

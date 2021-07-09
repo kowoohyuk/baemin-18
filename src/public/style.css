@@ -27,7 +27,7 @@ body {
   border: 2px solid var(--color-baemin);
   border-radius: 0.5rem;
   width: 100vw;
-  max-width: 25rem;
+  max-width: 24rem;
   margin: 10vh auto;
   padding: 0 1.5rem;
 }
@@ -58,19 +58,24 @@ body {
 header {
   display: flex;
   justify-content: space-between;
+  height: 2.5rem;
 }
 
 main {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   position: relative;
 }
 
 header button {
   font-size: var(--font-small);
+  min-width: 1rem;
 }
 
 header h1 {
   font-size: var(--font-regular);
+  margin: 0.5rem;
+  width: 8rem;
+  text-align: center;
 }
 
 a:visited {

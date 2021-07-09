@@ -125,11 +125,11 @@
   };
 
   const combineUserInfo = () => {
-    const phone = localStorage.getItem('phone');
-    if (!phone || !localStorage.getItem('agree')) return false;
+    const phone = sessionStorage.getItem('phone');
+    if (!phone || !sessionStorage.getItem('agree')) return false;
 
     const { ageUp, privateInfo, smsReceive } = JSON.parse(
-      localStorage.getItem('agree')
+      sessionStorage.getItem('agree')
     );
 
     return {
