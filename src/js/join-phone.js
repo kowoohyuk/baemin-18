@@ -9,10 +9,17 @@
       .fill(0)
       .map((_) => Math.floor(Math.random() * 10))
       .join('');
+    verifyBtns.forEach((btn) => {
+      btn.classList.add('loading');
+    });
     setTimeout(() => {
       verifyInput.value = number;
       verifyBtns[1].classList.add('hidden');
       verifyBtns[0].classList.add('visible');
+      verifyInputWrap.classList.remove('hidden');
+      verifyBtns.forEach((btn) => {
+        btn.classList.remove('loading');
+      });
       verifyNumberValidation();
     }, 2000);
   };

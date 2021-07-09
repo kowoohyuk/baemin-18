@@ -1,0 +1,29 @@
+.btn-duplicate {
+  border: 1px solid var(--color-dark-gray);
+  border-radius: 0.25rem;
+  padding: 0.3125rem;
+  align-self: end;
+  margin-bottom: 2.25rem;
+}
+
+.btn-duplicate span {
+  color: var(--color-dark-gray);
+}
+
+.btn-duplicate:hover span {
+  color: var(--color-black);
+}
+
+.btn-duplicate.loading span {
+  display: none;
+}
+
+.btn-duplicate.loading .spinner {
+  display: inline-block;
+}
+
+.grid-block {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-gap: 1rem;
+}

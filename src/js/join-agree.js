@@ -73,7 +73,7 @@
   const allAgreeCheckBox = document.querySelector('.all-check');
   const fourteenUpRadioBtn = document.querySelector('.fourteen__up');
   const fourteenDownRadioBtn = document.querySelector('.fourteen__down');
-  const nextBtn = document.querySelector('.next-btn');
+  const nextBtn = document.querySelector('.btn-next');
   const prevBtn = document.querySelector('.prev');
 
   agreeCheckBoxes.forEach((checkbox) =>

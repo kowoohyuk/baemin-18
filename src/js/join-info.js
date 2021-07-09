@@ -17,8 +17,32 @@
       return true;
     } else {
       emailInputWrap.classList.remove('pass');
+      emailInputWrap.querySelector('.alert-text').textContent =
+        '올바른 이메일을 입력해주세요.';
       emailInputWrap.classList.add('alert');
       return false;
+    }
+  };
+
+  const handleDuplicate = async (e) => {
+    e.preventDefault();
+    if (emailValidation()) {
+      duplicateBtn.classList.add('loading');
+
+      duplicateBtn.classList.remove('loading');
+
+      const data = await fetch(`/email-check/${emailInput.value}`);
+      const result = data.json();
+      if (Number(result.result) === 0) {
+        emailInputWrap.querySelector('.alert-text').textContent =
+          '중복된 이메일 입니다.';
+        emailInputWrap.classList.remove('pass');
+        emailInputWrap.classList.add('alert');
+      } else {
+        nicknameInputWrap.classList.remove('hidden');
+        pwdInputWrap.classList.remove('hidden');
+        birthInputWrap.classList.remove('hidden');
+      }
     }
   };
 
@@ -176,7 +200,7 @@
 
   clearBtns.forEach((btn) => btn.addEventListener('click', resetInput));
 
-  duplicateBtn.addEventListener('click', (e) => e.preventDefault());
+  duplicateBtn.addEventListener('click', handleDuplicate);
   birthInput.addEventListener('keyup', handleKeyUpBirthInput);
   emailInput.addEventListener('focusout', emailValidation);
   nicknameInput.addEventListener('focusout', nicknameValidation);
