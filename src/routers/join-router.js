@@ -14,32 +14,35 @@ joinRouter.get('/3', (req, res) =>
   res.render('join-info', { title: '회원가입' })
 );
 
-joinRouter.post('/', (req, res) => {
+joinRouter.post('/email-check', async (req, res) => {
+  try{
+    const users = await db.find({ email : req.body.email });
+    if(users.length > 0){
+      return res.json({
+        result: 1
+      })
+    };
+    return res.json({
+      result: 0
+    });  
+  }catch(err){
+    return res.redirect('/error');
+  }
+})
+
+joinRouter.post('/', async (req, res) => {
   // 회원가입 처리
   
-  db.find({ email : req.body.email }, (err, users) => {
-    if(err) return res.redirect('/error');
-    if(users.length > 0) return console.log('Email 중복!!');
+  try{
+    const users = await db.find({ email : req.body.email });
+    if(users.length > 0) throw new Error();
     const userInfos = req.body;
-    pwdHash(userInfos, (err) => {
-      if(err) return res.redirect('/error');
-
-      db.insert(userInfos, (err, newDoc) => {
-        if(err) {
-            return res.redirect('/error');
-            // 에러처리 논의
-        }
-        console.log('save! ',newDoc);
-        res.redirect('/login');
-      });
-    });
-  });
+    await pwdHash(userInfos) 
+    await db.insert(userInfos);
+    res.redirect('/login');
+  }catch(err){
+    return res.redirect('/error');
+  }
 });
 
 export default joinRouter;
-
-
-/*
-  기본틀 작성!
-  err 처리 및 리팩토링 토의 생각중..
-*/
