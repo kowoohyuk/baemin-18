@@ -58,11 +58,11 @@
 .btn {
   padding: 0;
 }
-.btn .next-btn {
+.btn .btn-next {
   cursor: default;
 }
 
-.btn .next-btn.active {
+.btn .btn-next.active {
   cursor: pointer;
   background-color: var(--color-baemin);
 }

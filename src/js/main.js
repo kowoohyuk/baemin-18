@@ -17,6 +17,6 @@
     logoutBtn.addEventListener('click', () => {
       logout();
     });
-  localStorage.removeItem('agree');
-  localStorage.removeItem('phone');
+  sessionStorage.removeItem('agree');
+  sessionStorage.removeItem('phone');
 })();

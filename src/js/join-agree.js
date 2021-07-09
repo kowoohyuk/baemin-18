@@ -46,7 +46,7 @@
 
   const nextPage = () => {
     if (nextBtn.classList.contains('active') && isPass()) {
-      localStorage.setItem('agree', JSON.stringify(getAgreeState()));
+      sessionStorage.setItem('agree', JSON.stringify(getAgreeState()));
       location.pathname = '/join/2';
     }
   };
@@ -73,7 +73,7 @@
   const allAgreeCheckBox = document.querySelector('.all-check');
   const fourteenUpRadioBtn = document.querySelector('.fourteen__up');
   const fourteenDownRadioBtn = document.querySelector('.fourteen__down');
-  const nextBtn = document.querySelector('.next-btn');
+  const nextBtn = document.querySelector('.btn-next');
   const prevBtn = document.querySelector('.prev');
 
   agreeCheckBoxes.forEach((checkbox) =>
