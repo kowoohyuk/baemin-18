@@ -2,22 +2,24 @@ import bcrypt from 'bcrypt';
 
 const saltRounds = 10;
 
-const comparePassword = (plainPassword, hashPwd, cb ) => {
-    bcrypt.compare(plainPassword, hashPwd, (err, isMatch) => {
-      if (err) return cb(err);
-      cb(null, isMatch)
-    })
+const comparePassword = async (plainPassword, hashPwd) => {
+  try{
+    const isMatch = await bcrypt.compare(plainPassword, hashPwd);
+    return isMatch;
+  }catch(err){
+    return err;
   }
+}
 
-const pwdHash = (user, cb) => {
-    bcrypt.genSalt(saltRounds, (err, salt) => {
-        if(err) return cb(err); // err 처리 고민
-        bcrypt.hash(user.pwd, salt, (err, hash) => {
-            if(err) return cb(err); // err 처리 고민
-            user.pwd = hash
-            cb(null); 
-        })
-    })
+const pwdHash = async (user) => {
+  try{
+    const salt = await bcrypt.genSalt(saltRounds);
+    const hash = await bcrypt.hash(user.pwd, salt);
+    user.pwd = hash;
+    return;
+  }catch(err){
+    return err;
+  }
 }
 
 export { comparePassword, pwdHash }

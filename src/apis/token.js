@@ -1,27 +1,26 @@
 import jwt from 'jsonwebtoken';
 import db from '../database/database.js'
 
-const findByToken = (token, cb) => {
-
-    jwt.verify(token,'secret', (err, decode) => {
-        db.find({"_id":decode, "token":token}, (err, users) => {
-            if(err) return cb(err);
-            cb(null, users);
-        })
+const findByToken =  async (token) => {
+  try{
+    jwt.verify(token,'secret', async (err, decode) => {
+      const users = await db.find({"_id":decode, "token":token});
+      return users;
     })
+  }catch(err){
+    return err;
+  }
 }
 
-const generateToken = (_id,cb) => {
-    const token =  jwt.sign(_id,'secret')
-   
-    db.update({ _id : _id} , { $set: { token : token } }, (err) => {
-      if(err) return cb(err);
-  
-      db.find({ _id : _id}, (err,user) => {
-        if(err) return cb(err);
-        cb(null,user[0]);
-      })
-    })
+const generateToken = async (_id) => {
+  const token =  jwt.sign(_id,'secret');
+  try{
+    await db.update({ _id : _id} , { $set: { token : token }})
+    const user = await db.find({ _id : _id});
+    return user[0];
+  }catch(err){
+    return err;
   }
+}
 
 export { findByToken, generateToken }
