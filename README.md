@@ -66,18 +66,17 @@ npm run start
 - 아쿠아리움 탐방
   - 1~2개월 마다?
   
-[Tip - git stash 및 single branch clone](https://github.com/woowa-techcamp-2021/baemin-18/blob/main/tip/git.md)
+[Tip - git stash 및 single branch clone](https://github.com/woowa-techcamp-2021/baemin-18/wiki/Tips)
 
 ---
 ![프로필](https://user-images.githubusercontent.com/50862052/124464868-ab7d0c80-ddcf-11eb-955b-f661c5afe1bc.jpeg)
 ## 문지호
-경기도 구리에 사는 27살 문지호입니다.
-개발 인맥을 넓히고 싶습니다... (코로나 ㅠㅠ)
-### 취미
+경기도 구리에 사는 지호문입니다.
+야무지게 코딩해보아요~
+
+### 취미 
 - 헬스
 - 축구
 - 음악 듣기 & 부르기(모든장르)
 
-[Tip - 디자인 추천](https://github.com/woowa-techcamp-2021/baemin-18/blob/main/tip/디자인.md)  
-[Tip - 익스텐션 추천](https://github.com/woowa-techcamp-2021/baemin-18/blob/main/tip/익스텐션.md)
-
+[Tip - 디자인 추천 & 익스텐션 추천 & vscode 단축키 꿀팁](https://github.com/woowa-techcamp-2021/baemin-18/wiki/Tips)  
