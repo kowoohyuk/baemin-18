@@ -1,0 +1,38 @@
+(function () {
+  const submit = () => emailValidation() && pwdValidation() && form.submit();
+
+  const emailValidation = () => {
+    if (emailInput.value.length) {
+      emailInputWrap?.classList.remove('alert');
+      return true;
+    }
+    emailInputWrap?.classList.add('alert');
+    return false;
+  };
+
+  const pwdValidation = () => {
+    if (pwdInput.value.length) {
+      pwdInputWrap?.classList.remove('alert');
+      return true;
+    }
+    pwdInputWrap?.classList.add('alert');
+    return false;
+  };
+
+  const loginBtn = document.querySelector('.btn-login');
+  const prevBtn = document.querySelector('.prev');
+  const emailInputWrap = document.querySelector('.input-email');
+  const pwdInputWrap = document.querySelector('.input-pwd');
+  const emailInput = document.querySelector(
+    '.input-email input'
+  ) as HTMLInputElement;
+  const pwdInput = document.querySelector(
+    '.input-pwd input'
+  ) as HTMLInputElement;
+  const form = document.querySelector('form') as HTMLFormElement;
+
+  emailInput?.addEventListener('focusout', emailValidation);
+  pwdInput?.addEventListener('focusout', pwdValidation);
+  prevBtn?.addEventListener('click', () => history.go(-1));
+  loginBtn?.addEventListener('click', submit);
+})();
