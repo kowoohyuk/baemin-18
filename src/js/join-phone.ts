@@ -1,7 +1,10 @@
 (function () {
-  const resetInput = (e) => {
-    e.target.closest('.input-block').children[1].value = '';
-    e.target.closest('.input-block').children[1].focus();
+  const resetInput = (e: MouseEvent) => {
+    const target = e.target as HTMLElement;
+    const inputBlock = target.closest('.input-block') as HTMLElement;
+    const inputBlockChildren = inputBlock.children[1] as HTMLInputElement;
+    inputBlockChildren.value = '';
+    inputBlockChildren.focus();
   };
 
   const getVerifyCode = () => {
@@ -65,8 +68,8 @@
     }
   };
 
-  const handleKeyUpPhoneInput = (e) => {
-    const { target } = e;
+  const handleKeyUpPhoneInput = (e: KeyboardEvent) => {
+    const target = e.target as HTMLInputElement;
     const value = target.value.replace(/[^\d]/g, '').slice(0, 11);
     target.value = value.replace(/^(.{3})(.+)(.{4})$/, '$1-$2-$3');
   };
@@ -84,21 +87,29 @@
 
   const clearBtns = document.querySelectorAll('.input-btns .btn-clear');
   const verifyBtns = document.querySelectorAll('.btn-verify');
-  const phoneInputWrap = document.querySelector('.input-phone');
-  const verifyInputWrap = document.querySelector('.input-verify');
-  const phoneInput = document.querySelector('.input-phone input');
-  const verifyInput = document.querySelector('.input-verify input');
-  const nextBtn = document.querySelector('.next');
-  const prevBtn = document.querySelector('.prev');
+  const phoneInputWrap = document.querySelector(
+    '.input-phone'
+  ) as HTMLDivElement;
+  const verifyInputWrap = document.querySelector(
+    '.input-verify'
+  ) as HTMLDivElement;
+  const phoneInput = document.querySelector(
+    '.input-phone input'
+  ) as HTMLInputElement;
+  const verifyInput = document.querySelector(
+    '.input-verify input'
+  ) as HTMLInputElement;
+  const nextBtn = document.querySelector('.next') as HTMLButtonElement;
+  const prevBtn = document.querySelector('.prev') as HTMLButtonElement;
 
   clearBtns.forEach((btn) => {
-    btn.addEventListener('click', resetInput);
+    btn.addEventListener('click', (e) => resetInput(e as MouseEvent));
   });
 
   verifyBtns.forEach((btn) =>
     btn.addEventListener(
       'click',
-      (e) => phoneNumberValidation() && getVerifyCode(e)
+      () => phoneNumberValidation() && getVerifyCode
     )
   );
 

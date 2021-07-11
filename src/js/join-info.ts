@@ -1,7 +1,22 @@
+interface IUserInfo {
+  email: string;
+  pwd: string;
+  nickname: string;
+  birth: string;
+  phone: string;
+  ageUp: string;
+  privateInfo: string;
+  smsReceive: string;
+  token: string;
+}
+
 (function () {
-  const resetInput = (e) => {
-    e.target.closest('.input-block').children[1].value = '';
-    e.target.closest('.input-block').children[1].focus();
+  const resetInput = (e: MouseEvent) => {
+    const target = e.target as HTMLElement;
+    const inputBlock = target.closest('.input-block') as HTMLElement;
+    const inputBlockChildren = inputBlock.children[1] as HTMLInputElement;
+    inputBlockChildren.value = '';
+    inputBlockChildren.focus();
   };
 
   const emailValidation = () => {
@@ -17,14 +32,17 @@
       return true;
     } else {
       emailInputWrap.classList.remove('pass');
-      emailInputWrap.querySelector('.alert-text').textContent =
-        '올바른 이메일을 입력해주세요.';
+
+      const emailAlertTag = emailInputWrap.querySelector(
+        '.alert-text'
+      ) as HTMLParagraphElement;
+      emailAlertTag.textContent = '올바른 이메일을 입력해주세요.';
       emailInputWrap.classList.add('alert');
       return false;
     }
   };
 
-  const handleDuplicate = async (e) => {
+  const handleDuplicate = async (e: MouseEvent) => {
     e.preventDefault();
     if (emailValidation()) {
       duplicateBtn.classList.add('loading');
@@ -33,8 +51,10 @@
       setTimeout(() => {
         duplicateBtn.classList.remove('loading');
         if (Number(result.result) === 1) {
-          emailInputWrap.querySelector('.alert-text').textContent =
-            '중복된 이메일 입니다.';
+          const emailAlertTag = emailInputWrap.querySelector(
+            '.alert-text'
+          ) as HTMLParagraphElement;
+          emailAlertTag.textContent = '중복된 이메일 입니다.';
           emailInputWrap.classList.remove('pass');
           emailInputWrap.classList.add('alert');
         } else {
@@ -66,8 +86,8 @@
       lower: false,
       number: false,
     };
-    const sequenceStack = [];
-    const sameStack = [];
+    const sequenceStack: string[] = [];
+    const sameStack: string[] = [];
     for (const str of strings) {
       if (/[A-Z]/.test(str)) type.upper = true;
       else if (/[a-z]/.test(str)) type.lower = true;
@@ -129,8 +149,8 @@
     return tmpDate.getDate() >= Number(day);
   };
 
-  const handleKeyUpBirthInput = (e) => {
-    const { target } = e;
+  const handleKeyUpBirthInput = (e: KeyboardEvent) => {
+    const target = e.target as HTMLInputElement;
     const value = target.value.replace(/[^\d]/g, '').slice(0, 11);
     target.value = value.replace(/^(.{4})(.{2})(.{2})$/, '$1.$2.$3');
   };
@@ -143,18 +163,17 @@
       birthValidation()
     ) {
       const userInfo = combineUserInfo();
-      if (!userInfo) return;
+      if (typeof userInfo === 'boolean') return;
       joinUser(userInfo);
     }
   };
 
-  const combineUserInfo = () => {
+  const combineUserInfo = (): IUserInfo | boolean => {
     const phone = sessionStorage.getItem('phone');
-    if (!phone || !sessionStorage.getItem('agree')) return false;
+    const agree = sessionStorage.getItem('agree');
+    if (!phone || !agree) return false;
 
-    const { ageUp, privateInfo, smsReceive } = JSON.parse(
-      sessionStorage.getItem('agree')
-    );
+    const { ageUp, privateInfo, smsReceive } = JSON.parse(agree);
 
     return {
       email: emailInput.value,
@@ -169,7 +188,7 @@
     };
   };
 
-  const joinUser = (userInfo) => {
+  const joinUser = (userInfo: IUserInfo) => {
     form.insertAdjacentHTML(
       'beforeend',
       `
@@ -183,22 +202,40 @@
     form.submit();
   };
   const clearBtns = document.querySelectorAll('.input-btns .btn-clear');
-  const duplicateBtn = document.querySelector('.btn-duplicate');
-  const emailInputWrap = document.querySelector('.input-email');
-  const nicknameInputWrap = document.querySelector('.input-nickname');
-  const pwdInputWrap = document.querySelector('.input-pwd');
-  const birthInputWrap = document.querySelector('.input-birth');
+  const duplicateBtn = document.querySelector(
+    '.btn-duplicate'
+  ) as HTMLButtonElement;
+  const emailInputWrap = document.querySelector(
+    '.input-email'
+  ) as HTMLDivElement;
+  const nicknameInputWrap = document.querySelector(
+    '.input-nickname'
+  ) as HTMLDivElement;
+  const pwdInputWrap = document.querySelector('.input-pwd') as HTMLDivElement;
+  const birthInputWrap = document.querySelector(
+    '.input-birth'
+  ) as HTMLDivElement;
 
-  const emailInput = document.querySelector('.input-email input');
-  const nicknameInput = document.querySelector('.input-nickname input');
-  const pwdInput = document.querySelector('.input-pwd input');
-  const birthInput = document.querySelector('.input-birth input');
+  const emailInput = document.querySelector(
+    '.input-email input'
+  ) as HTMLInputElement;
+  const nicknameInput = document.querySelector(
+    '.input-nickname input'
+  ) as HTMLInputElement;
+  const pwdInput = document.querySelector(
+    '.input-pwd input'
+  ) as HTMLInputElement;
+  const birthInput = document.querySelector(
+    '.input-birth input'
+  ) as HTMLInputElement;
 
-  const submitBtn = document.querySelector('.submit');
-  const prevBtn = document.querySelector('.prev');
-  const form = document.querySelector('form');
+  const submitBtn = document.querySelector('.submit') as HTMLButtonElement;
+  const prevBtn = document.querySelector('.prev') as HTMLButtonElement;
+  const form = document.querySelector('form') as HTMLFormElement;
 
-  clearBtns.forEach((btn) => btn.addEventListener('click', resetInput));
+  clearBtns.forEach((btn) =>
+    btn.addEventListener('click', (e) => resetInput(e as MouseEvent))
+  );
 
   duplicateBtn.addEventListener('click', handleDuplicate);
   birthInput.addEventListener('keyup', handleKeyUpBirthInput);

@@ -1,5 +1,6 @@
 (function () {
-  const handleCheckBox = ({ target }) => {
+  const handleCheckBox = (e: MouseEvent) => {
+    const target = e.target as HTMLElement;
     target.classList.toggle('active');
     if (target.classList.contains('all-check')) {
       const isActive = target.classList.contains('active');
@@ -34,7 +35,7 @@
     }
   };
 
-  const changeFourTeenState = (type) => {
+  const changeFourTeenState = (type: string) => {
     if (type === 'up') {
       fourteenDownRadioBtn.classList.remove('active');
       fourteenUpRadioBtn.classList.add('active');
@@ -70,14 +71,18 @@
   };
 
   const agreeCheckBoxes = document.querySelectorAll('.checklists__box');
-  const allAgreeCheckBox = document.querySelector('.all-check');
-  const fourteenUpRadioBtn = document.querySelector('.fourteen__up');
-  const fourteenDownRadioBtn = document.querySelector('.fourteen__down');
-  const nextBtn = document.querySelector('.btn-next');
-  const prevBtn = document.querySelector('.prev');
+  const allAgreeCheckBox = document.querySelector('.all-check') as HTMLElement;
+  const fourteenUpRadioBtn = document.querySelector(
+    '.fourteen__up'
+  ) as HTMLElement;
+  const fourteenDownRadioBtn = document.querySelector(
+    '.fourteen__down'
+  ) as HTMLElement;
+  const nextBtn = document.querySelector('.btn-next') as HTMLElement;
+  const prevBtn = document.querySelector('.prev') as HTMLElement;
 
   agreeCheckBoxes.forEach((checkbox) =>
-    checkbox.addEventListener('click', handleCheckBox)
+    checkbox.addEventListener('click', (e) => handleCheckBox(e as MouseEvent))
   );
   fourteenUpRadioBtn.addEventListener('click', () => changeFourTeenState('up'));
   fourteenDownRadioBtn.addEventListener('click', () =>
