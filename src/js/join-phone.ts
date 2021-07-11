@@ -109,7 +109,7 @@
   verifyBtns.forEach((btn) =>
     btn.addEventListener(
       'click',
-      () => phoneNumberValidation() && getVerifyCode
+      () => phoneNumberValidation() && getVerifyCode()
     )
   );
 
