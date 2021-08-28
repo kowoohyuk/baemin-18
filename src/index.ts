@@ -1,7 +1,7 @@
 import express from 'express';
-import loginRouter from './routers/login-router.js';
-import joinRouter from './routers/join-router.js';
-import mainRouter from './routers/main-router.js';
+import loginRouter from './routers/login-router';
+import joinRouter from './routers/join-router';
+import mainRouter from './routers/main-router';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 
