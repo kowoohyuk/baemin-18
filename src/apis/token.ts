@@ -4,7 +4,7 @@ import { User } from '../types/User.js';
 
 const findByToken = async (
   token: string,
-  cb: (err: Error | null, users?: User[]) => void
+  cb: (err: Error | unknown, users?: User[]) => void
 ) => {
   try {
     jwt.verify(token, 'secret', async (err, decode) => {
@@ -20,10 +20,10 @@ const generateToken = async (_id: string) => {
   const token = jwt.sign(_id, 'secret');
   try {
     await db.update({ _id: _id }, { $set: { token: token } });
-    const user = await db.find({ _id: _id });
+    const user = await db.find<User>({ _id: _id });
     return user[0];
   } catch (err) {
-    return err;
+    console.error(err);
   }
 };
 

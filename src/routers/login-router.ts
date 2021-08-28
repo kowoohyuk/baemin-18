@@ -11,11 +11,11 @@ loginRouter.post('/', async (req, res) => {
   try {
     const users = await db.find<User>({ email: req.body.email });
     if (users.length === 0) return res.render('login', { title: '로그인' });
-    let user = users[0];
+
+    const user = await generateToken(users[0]._id);
+    if (!user) throw Error('에러');
     const isMatch = await comparePassword(req.body.pwd, user.pwd);
     if (!isMatch) return res.render('login', { title: '로그인' });
-
-    user = await generateToken(user._id);
 
     res
       .cookie('w_auth', user.token, {

@@ -4,7 +4,7 @@ import { User } from '../types/User';
 
 export default function auth(req: Request, res: Response, next: NextFunction) {
   const token = req.cookies.w_auth;
-  findByToken(token, (err: Error | null, users?: User[]) => {
+  findByToken(token, (err: Error | unknown, users?: User[]) => {
     try {
       if (err) return res.redirect('/error');
       if (!users || users.length === 0)
