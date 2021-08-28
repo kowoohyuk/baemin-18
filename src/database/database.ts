@@ -9,6 +9,6 @@
 // export default database;
 
 import Datastore from 'nedb-promises';
-let database = Datastore.create('src/models/User.db');
+const database = Datastore.create('src/models/User.db');
 
 export default database;
