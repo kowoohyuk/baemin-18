@@ -5,7 +5,8 @@ export interface User {
   pwd: string;
   birth: string;
   phone: string;
-  ageUp: "T" | "F";
-  privateInfo: "T" | "F";
-  smsReceive: "T" | "F";
+  ageUp: 'T' | 'F';
+  privateInfo: 'T' | 'F';
+  smsReceive: 'T' | 'F';
+  token?: string;
 }
